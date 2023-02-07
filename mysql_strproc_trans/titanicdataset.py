@@ -1,0 +1,17 @@
+import pandas as pd
+import numpy as np
+data=pd.read_csv("..//pandas_demo/tested.csv")
+#print(data)
+#print(data.shape)
+#print(data.isna().any())
+#data.drop(['Cabin'],axis=1,inplace=True)
+#data.fillna(method='ffill',inplace=True)
+#print(data['Survived'].map({1:'yes',0:'no'}))
+#print(data.isna().sum())
+#print(data)
+#print(pd.crosstab(index=data['Sex'],columns=data['Survived']))
+#print(data.groupby(['Sex','Survived'])['Survived'].count())
+print(pd.crosstab(index=data['Survived'],columns=data['Sex']))
+#print(data.groupby(['Sex','Survived'])['Survived'].count())
+print(pd.pivot_table(data,index=['Sex','Age'],aggfunc=np.sum))
+print(data.sort_values(by=['Pclass','Age'],ascending=False))
